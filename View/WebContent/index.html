@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap 101 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<script src="js/bootstrap.min.js"></script>
+	<script src="http://code.jquery.com/jquery.js"></script>
+  </head>
+  <body>
+
+    <div class="navbar  navbar-inverse navbar-fixed-top">
+	  <div class="navbar-inner">
+		<div class="container">
+	 
+		  <a class="brand" href="#">Title</a>
+    <ul class="nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Link</a></li>
+      <li><a href="#">Link</a></li>
+	  <a id="header-login-button" href="#login-modal" role="button" data-toggle="modal" class="button gray proxima-bold login">Log in</a>
+	  <a id="header-signup-button" href="#signup-modal" role="button" data-toggle="modal" class="button proxima-bold signup">Sign up</a>
+    </ul>
+		  <div class="nav-collapse collapse">
+			<!-- .nav, .navbar-search, .navbar-form, etc -->
+		  </div>
+	 
+		</div>
+	  </div>
+</div>
+
+
+
+<!-- Button to trigger modal --><script src="js/bootstrap.min.js"></script>
+	<script src="http://code.jquery.com/jquery.js"></script>
+
+	<div id="signup-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="signup-top">
+			<div class="header-text proxima-bold">BUILD AMAZING INTERFACES</div>
+			<form id="signup-form" method="post" action="registerServlet">
+			   <input type="text" class="input-small" placeholder="First Name">
+			<input type="password" class="input-small" placeholder="Last Name">
+			 <input class="input-xlarge" type="text" placeholder="Email" name="email">
+			 <input class="input-xlarge" type="text" placeholder="Password" name="password">
+			 <button href="#" id="create-account-button" class="proxima-bold create-account blue-gradient">CREATE MY ACCOUNT! <img class="hidden" src="https://s3.amazonaws.com/jetstrap-site/images/2.0/login_loader.gif" alt="Loading" title="Loading"></button>
+			</form>
+			<div class="text">Already have an account? <a href="#login-modal" class="login-link link proxima-bold">Log in</a></div>
+		  <div id="signup-response-text" class="signup-bottom hidden clearfix proxima-bold" style="background-color: rgb(176, 34, 32); display: block;">All fields are required</div>
+			
+		</div>
+	</div>
+<div id="login-modal" class="modal hide" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="login-top clearfix">
+        <div class="left">
+          <div class="header-text proxima-bold">Log in</div>
+          <form id="login-form" method="post" action="loginCheck">
+            <div style="display:none"><input type="hidden" name="csrfmiddlewaretoken" value="g4lhU68oQFhsbytzlCvlmFBPlKfpYqKN"></div>
+            <input type="text" name="email" autofocus="autofocus" placeholder="Email" class="email input">
+            <input type="password" name="password" placeholder="Password" class="password input">
+            <button href="#" id="login-button" class="proxima-bold blue-gradient login-button">LOG IN <img class="hidden" src="https://s3.amazonaws.com/jetstrap-site/images/2.0/login_loader.gif" alt="Loading" title="Loading"></button>
+            <a href="/user/pwreset" class="reset">Forget your password?</a>
+          </form>
+        </div>
+        <div class="right">
+          <div class="header-text proxima-bold">Or did you sign up with...</div>
+          <a href="/login/twitter" class="button clearfix">
+            <div class="twitter button-icon">
+              <img class="login-icon" src="https://s3.amazonaws.com/jetstrap-site/images/login_twitter_icon.png" alt="Twitter Logo">
+            </div>
+            <div class="proxima-bold twitter button-right">I signed up with Twitter</div>
+          </a>
+          <a href="/login/google-oauth2" class="button clearfix">
+            <div class="google button-icon">
+              <img class="login-icon" src="https://s3.amazonaws.com/jetstrap-site/images/login_google_icon.png" alt="Google Logo">
+            </div>
+            <div class="proxima-bold google button-right">I signed up with Google</div>
+          </a>
+          <a href="/login/github" class="button clearfix">
+            <div class="github button-icon">
+              <img class="login-icon" src="https://s3.amazonaws.com/jetstrap-site/images/login_github_icon.png" alt="Github Logo">
+            </div>
+            <div class="proxima-bold github button-right">I signed up with Github</div>
+          </a>
+        </div>
+      </div>
+      <a href="#signup-modal" class="login-bottom clearfix proxima-regular weight-bold">Don't have an account? <span class="proxima-bold weight-bold">Sign up</span></a>
+      <div id="login-response-text" class="login-response-text hidden clearfix proxima-bold"></div>
+    </div>
+  </body>
+</html>

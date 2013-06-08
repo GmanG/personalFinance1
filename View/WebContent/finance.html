@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap 101 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<script src="js/bootstrap.min.js"></script>
+	<script src="http://code.jquery.com/jquery.js"></script>
+  </head>
+  <body>
+	<script src="js/bootstrap.min.js"></script>
+`	<script src="http://code.jquery.com/jquery.js"></script>
+	<div style="width:250px; height:200px; border:1px solid; margin:30px 20px 0px 40px; float:left">
+	Total momey
+	</div>
+	<div style="border:1px solid;float:left;width:800px;height:800px">
+		<div  style="margin:30px auto 0 5px; width:500px; height:220px;border:1px solid;">
+			<div class="tabbable"  style="background:white"> <!-- Only required for left/right tabs -->
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="#tab1" data-toggle="tab">Money out</a></li>
+					<li><a href="#tab2" data-toggle="tab">Money come</a></li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="tab1">
+						 <div class="tab-pane" id="tab1">
+						
+							<form action="outmoney" method="POST">
+								<select class="selectpicker">
+									<optgroup label="Personal">
+									<option>Wallet</option>
+									<option>Save</option>
+								</select>
+								<input type="text" placeholder="Amount" name="amount">
+								<select class="selectpicker">
+									<option>No categories</option>
+									<option>Home</option>
+									<option>Food</option>
+								</select>
+								<input type="text" placeholder="Description" name="descrip"><br>
+								<input type="submit" value="Add">
+							</form>
+							
+						</div>
+					</div>
+					<div class="tab-pane" id="tab2">
+						<form action="addmoney" method="POST">
+							<select class="selectpicker">
+								<optgroup label="Personal">
+								<option>Wallet</option>
+								<option>Save</option>
+							</select>
+							<input type="text" placeholder="Amount1" name="amount">
+							<select class="selectpicker">
+								<option>No categories</option>
+								<option>Home</option>
+								<option>Food</option>
+							</select>
+							<input type="text" placeholder="Description" name="descrip"><br>
+							<input type="submit"  value="Add">
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div style="width:350px;height:200px; border:1px solid;margin:10px;">
+			Last transaction			
+		</div>
+	</div>
+	
+  </body>
+</html>
