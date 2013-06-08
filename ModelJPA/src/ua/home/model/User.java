@@ -11,13 +11,17 @@ import java.util.List;
  * 
  */
 @Entity
-@NamedQueries ({ 
+//@NamedQuery 
+//(name ="findUserByEmailAndPass",
+// query = "select o from User o where o.email=:email and o.pass=:pass")
+@NamedQueries ({
+			@NamedQuery
+			(name = "getUserByEmail",
+	 		 query = "select u from User u where u.email = :email"),
 			@NamedQuery 
 			(name ="findUserByEmailAndPass",
-			 query = "select o from User o where o.email=:email and o.pass=:pass"),
-			@NamedQuery
-			(name = "getUserID",
-			 query = "select o.id from User o where o.email=:email"),
+			 query = "select u from User u where u.email = :email and u.pass = :pass"),
+			
 })
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -30,6 +34,8 @@ public class User implements Serializable {
 	private Date created;
 
 	private String email;
+
+	
 
 	private String pass;
 
@@ -156,7 +162,13 @@ public class User implements Serializable {
 
 		return categorietype;
 	}
-	
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", created=" + created + ", email=" + email
+				+ ", pass=" + pass + ", updated=" + updated + ", balances="
+				+ balances + ", categories=" + categories + ", categorietypes="
+				+ categorietypes + "]";
+	}
 	
 
 }

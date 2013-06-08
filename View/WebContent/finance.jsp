@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<%@ taglib prefix="x" uri="http://java.sun.com/jstl/xml" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jstl/sql" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -17,7 +21,7 @@
 		<div class="container">
 	 		 <ul class="nav">
 	 		 
-			  	<li><a class="brand" href="#"><%=session.getAttribute("email") %></a></li>
+			  	<li><a class="brand" name="email" href="#"><%=session.getAttribute("email") %></a></li>
 	    		<!-- <a href="logOff">Logout</a> -->
 		 		<li><a id="header-login-button" href="logOff" class="button gray proxima-bold login">Logout</a></li>
 		 	</ul>
@@ -59,10 +63,13 @@
 						</div>
 						<div class="tab-pane" id="tab2">
 							<form action="addmoney" method="POST">
-								<select class="selectpicker" name="categorie">
+								<select class="selectpicker" name="category">
 									<optgroup label="Personal">
-									<option name="wallet">Wallet</option>
-									<option name="save">Save</option>
+									 <option name="wallet">Wallet</option>
+									<option name="save">Save</option> 
+<%-- 									 <c:forEach items="${} }"> --%>
+<%-- 									<option name="wallet">${q.name}</option> --%>
+<%-- 									</c:forEach>   --%>
 								</select>
 								<input type="text" placeholder="Amount1" name="amount">
 								<select class="selectpicker" name="type">
@@ -78,7 +85,7 @@
 				</div>
 			</div>
 			<div style="width:350px;height:200px; border:1px solid;margin:10px;">
-				Last transaction			
+				Last transaction	<%=session.getAttribute("email") %>		
 			</div>
 		</div>
 	</div>

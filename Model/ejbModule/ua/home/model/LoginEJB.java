@@ -38,5 +38,18 @@ public class LoginEJB implements LoginEJBLocal {
 		}
 		return user.get(0);
 	}
+	
+	private List<User> getUserByEmail(String email) {
+		// TODO Auto-generated method stub
+		return em.createNamedQuery("getUserByEmail").setParameter("email", email).getResultList();
+	}
+	
+	@Override
+	public User userCheck(String email) throws Exception{
+		List<User> user = getUserByEmail(email);
+		if(user.size()!=1)
+			new Exception("=============== No user---------------------");
+		return user.get(0);
+	}
 
 }

@@ -10,6 +10,16 @@ import java.util.List;
  * 
  */
 @Entity
+@NamedQueries ({
+				@NamedQuery(
+							name = "getCategoryTypeByUser",
+							query = "select o from Categorietype o where o.user = :user or o.user is null"
+						),
+				@NamedQuery(
+							name = "getCategoryTypeByName",
+							query = "select catType from Categorietype catType where catType.name = :name"
+						),
+})
 public class Categorietype implements Serializable {
 	private static final long serialVersionUID = 1L;
 

@@ -9,4 +9,5 @@ public interface LoginEJBLocal {
 
 	
 	User userCheckLogin(String email, String password) throws Exception;
+	User userCheck(String email) throws Exception;
 }

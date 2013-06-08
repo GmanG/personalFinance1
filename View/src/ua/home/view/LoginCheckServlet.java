@@ -1,6 +1,7 @@
 package ua.home.view;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -35,6 +36,7 @@ public class LoginCheckServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		PrintWriter out = response.getWriter();
 		String email = "";
 		String password = "";
 		email = request.getParameter("email");
@@ -49,6 +51,7 @@ public class LoginCheckServlet extends HttpServlet {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 //			e.printStackTrace();
+//			out.print("<html>"+email+"/"+password+"</html>");
 			response.sendRedirect("error.html");
 		}
 	}
