@@ -40,5 +40,10 @@ public class UserEJB implements UserEJBLocal {
 			new Exception("=============== No user---------------------");
 		return user.get(0);
 	}
+	@Override
+	public List<User> getUsers() {
+		// TODO Auto-generated method stub
+		return em.createNamedQuery("getUsers").getResultList();
+	}
 
 }

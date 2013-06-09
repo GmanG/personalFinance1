@@ -21,6 +21,9 @@ import java.util.List;
 			@NamedQuery 
 			(name ="findUserByEmailAndPass",
 			 query = "select u from User u where u.email = :email and u.pass = :pass"),
+			 @NamedQuery
+				(name = "getUsers",
+		 		 query = "select u from User u"),
 			
 })
 public class User implements Serializable {
@@ -165,9 +168,7 @@ public class User implements Serializable {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", created=" + created + ", email=" + email
-				+ ", pass=" + pass + ", updated=" + updated + ", balances="
-				+ balances + ", categories=" + categories + ", categorietypes="
-				+ categorietypes + "]";
+				+ ", pass=" + pass + ", updated=" + updated ;
 	}
 	
 

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <%@ taglib prefix="x" uri="http://java.sun.com/jstl/xml" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jstl/sql" %>
@@ -65,11 +66,13 @@
 							<form action="addmoney" method="POST">
 								<select class="selectpicker" name="category">
 									<optgroup label="Personal">
-									 <option name="wallet">Wallet</option>
-									<option name="save">Save</option> 
-<%-- 									 <c:forEach items="${} }"> --%>
-<%-- 									<option name="wallet">${q.name}</option> --%>
-<%-- 									</c:forEach>   --%>
+									 <!-- <option name="wallet">Wallet</option>
+									<option name="save">Save</option>  -->
+									
+								 <c:forEach items="${cate}" var="cate">
+								<option >${cate.name}</option>
+								  
+									</c:forEach>   
 								</select>
 								<input type="text" placeholder="Amount1" name="amount">
 								<select class="selectpicker" name="type">
@@ -89,5 +92,24 @@
 			</div>
 		</div>
 	</div>
+	<table border="1">
+
+<tr>
+<th>id</th>
+<th>email</th>
+</tr><%-- <sql:query var="q" dataSource="ModelJPA" sql="select * from User"></sql:query> --%>
+<c:forEach   items="${cate}" var="cate">
+<tr>
+ 	<td> ${cate.id} </td>
+ 	<%-- <td> ${cate.name} </td> --%>
+ 	
+</tr>
+</c:forEach>
+</table>
+	<form action="show" method="post" > 
+		<input type="submit" value="try" >
+	</form>
+<div>${cate}</div>
+<a href="table.jsp">sss</a>
 </body>
 </html>

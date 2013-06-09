@@ -9,4 +9,5 @@ public interface UserEJBLocal {
 	User getUserByEmail(String email);
 	 List<User> getUserByEmail1(String email);
 	 public User userCheck(String email) throws Exception;
+	 List<User> getUsers();
 }

@@ -24,15 +24,21 @@ public class CategoryEJB implements CategoryEJBLocal {
     }
 
 	@Override
-	public Categorie getCategoryByUser(User user) {
+	public List<Categorie> getCategoryByUser(User user) {
 		// TODO Auto-generated method stub
-		return ((Categorie)em.createNamedQuery("findAllUserCategory").setParameter("user", user).getResultList());
+		return em.createNamedQuery("findAllUserCategory").setParameter("user", user).getResultList();
 	}
 
 	@Override
 	public Categorie getCategoryByName(String name) {
 		// TODO Auto-generated method stub
 		return ((Categorie)em.createNamedQuery("findOneCategoryBYID").setParameter("name", name).getSingleResult());
+	}
+
+	@Override
+	public List<Categorie> getCategoryByUser1() {
+		// TODO Auto-generated method stub
+		return em.createNamedQuery("findAllUserCategory1").getResultList();
 	}
 
 //	@Override

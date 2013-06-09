@@ -2,6 +2,7 @@ package ua.home.view;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -10,7 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ua.home.model.Categorie;
+import ua.home.model.CategoryEJBLocal;
 import ua.home.model.LoginEJBLocal;
+import ua.home.model.UserEJBLocal;
 
 import ua.home.model.User;
 
@@ -22,20 +26,24 @@ public class LoginCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	@EJB
 	private LoginEJBLocal login;
+	@EJB
+	private UserEJBLocal users;
+	@EJB
+	private CategoryEJBLocal cat;
+	@EJB
+    private UserEJBLocal userHandler;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
     public LoginCheckServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		PrintWriter out = response.getWriter();
 		String email = "";
 		String password = "";
@@ -44,14 +52,11 @@ public class LoginCheckServlet extends HttpServlet {
 		
 		try {
 			User user = login.userCheckLogin(email, password);
-//			response.set
+			List<Categorie> cate = cat.getCategoryByUser(user);
+			request.setAttribute("cate", cate);
 			request.getSession().setAttribute("email", email);
-//			response.sendRedirect("finance.jsp");
 			request.getRequestDispatcher("finance.jsp").forward(request, response);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//			out.print("<html>"+email+"/"+password+"</html>");
 			response.sendRedirect("error.html");
 		}
 	}

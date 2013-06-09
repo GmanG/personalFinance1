@@ -13,7 +13,11 @@ import java.util.List;
 @NamedQueries ({
 				@NamedQuery(
 							name = "findAllUserCategory",
-							query = "select cat from Categorie cat where cat.user = :user or cat.id is NULL"
+							query = "select cat from Categorie cat where cat.user = :user or cat.user is null"
+						),
+				@NamedQuery(
+							name = "findAllUserCategory1",
+							query = "select cat from Categorie cat where cat.user is null "
 						),
 				@NamedQuery(
 							name = "findOneCategoryBYID",
@@ -21,6 +25,12 @@ import java.util.List;
 						),
 })
 public class Categorie implements Serializable {
+	@Override
+	public String toString() {
+		return "Categorie [id=" + id + ", name=" + name + ", user=" + user
+				+ "]";
+	}
+
 	private static final long serialVersionUID = 1L;
 
 	@Id

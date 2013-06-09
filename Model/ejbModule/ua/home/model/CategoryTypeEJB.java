@@ -7,8 +7,6 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import com.sun.xml.internal.stream.Entity;
-
 /**
  * Session Bean implementation class CategoryTypeEJB
  */
