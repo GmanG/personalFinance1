@@ -1,16 +1,27 @@
-<!DOCTYPE html>
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@ taglib prefix="x" uri="http://java.sun.com/jstl/xml" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jstl/sql" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-  <head>
-    <title>Bootstrap 101 Template</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+ 	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 	<script src="js/bootstrap.min.js"></script>
-	<script src="http://code.jquery.com/jquery.js"></script>
-  </head>
-  <body>
-	<script src="js/bootstrap.min.js"></script>
-`	<script src="http://code.jquery.com/jquery.js"></script>
+	 <script src="http://code.jquery.com/jquery.js"></script> 
+	<script src="js/ajax.js"></script>
+	 <style type="text/css">
+		
+	</style>
+<title>Insert title here</title>
+</head>
+<body>
+<script src="js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery.js"></script>
 	<div class="navbar  navbar-inverse navbar-fixed-top">
 	  <div class="navbar-inner">
 		<div class="container">
@@ -86,5 +97,5 @@
 			</div>
 		</div>
 	</div>
-  </body>
+</body>
 </html>

@@ -26,22 +26,28 @@ public class CategoryHandlerEJB implements CategoryHandlerEJBLocal {
         // TODO Auto-generated constructor stub
     }
 
-	@Override
-	public List<Category> getCategoryByUser(User user) {
-		// TODO Auto-generated method stub
-		return em.createNamedQuery("findAllUserCategory").setParameter("user", user).getResultList();
-	}
+//	@Override
+//	public List<Category> getCategoryByUser(User user) {
+//		// TODO Auto-generated method stub
+//		return em.createNamedQuery("findAllUserCategory").setParameter("user", user).getResultList();
+//	}
 
 	@Override
 	public Category getCategoryByName(String name) {
 		// TODO Auto-generated method stub
-		return ((Category)em.createNamedQuery("findOneCategoryBYID").setParameter("name", name).getSingleResult());
+		return ((Category)em.createNamedQuery("Category.getOneCategoryByName").setParameter("name", name).getSingleResult());
 	}
 
+//	@Override
+//	public List<Category> getCategoryByUser1() {
+//		// TODO Auto-generated method stub
+//		return em.createNamedQuery("findAllUserCategory1").getResultList();
+//	}
+
 	@Override
-	public List<Category> getCategoryByUser1() {
+	public List<Category> getAllCategory(User user) {
 		// TODO Auto-generated method stub
-		return em.createNamedQuery("findAllUserCategory1").getResultList();
+		return em.createNamedQuery("Category.getCategoryName").setParameter("user", user).getResultList();
 	}
 
 //	@Override

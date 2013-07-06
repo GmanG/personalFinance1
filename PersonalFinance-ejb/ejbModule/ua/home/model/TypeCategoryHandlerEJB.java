@@ -31,8 +31,14 @@ public class TypeCategoryHandlerEJB implements TypeCategoryHandlerEJBLocal {
 	}
 
 	@Override
-	public Typecategory getCategoryTypeByname(String name) {
-		return ((Typecategory)em.createNamedQuery("getCategoryTypeByName").setParameter("name", name).getSingleResult());
+	public Typecategory getCategoryTypeByName(String name) {
+		return ((Typecategory)em.createNamedQuery("Typecategory.getOneTypeByName").setParameter("name", name).getSingleResult());
+	}
+
+	@Override
+	public List<Typecategory> getAllTypeCategory(User user) {
+		// TODO Auto-generated method stub
+		return em.createNamedQuery("Typecategory.getAllTypeCategoryUser").setParameter("user", user).getResultList();
 	}
 
 }

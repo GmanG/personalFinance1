@@ -10,8 +10,9 @@ import ua.home.entity.User;
 @Local
 public interface CategoryHandlerEJBLocal {
 
-	List<Category> getCategoryByUser(User user);
-	List<Category> getCategoryByUser1();
+//	List<Category> getCategoryByUser(User user);
+//	List<Category> getCategoryByUser1();
 	Category getCategoryByName(String name);
+	List<Category> getAllCategory(User user);
 	
 }

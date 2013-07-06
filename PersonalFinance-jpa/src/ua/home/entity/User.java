@@ -15,7 +15,11 @@ import java.util.List;
 				@NamedQuery (
 							name ="User.findUserByEmailAndPass",
 							query = "select u from User u where u.email = :email and u.pass = :pass" 
-						)
+						),
+				@NamedQuery (
+						name ="User.findUserByEmail",
+						query = "select u from User u where u.email = :email" 
+					)
 	
 })
 public class User implements Serializable {
@@ -36,16 +40,16 @@ public class User implements Serializable {
 	private Date updated;
 
 	//bi-directional many-to-one association to Balance
-	@OneToMany(mappedBy="user")
-	private List<Balance> balances;
+//	@OneToMany(mappedBy="user")
+//	private List<Balance> balances;
 
-	//bi-directional many-to-one association to Category
-	@OneToMany(mappedBy="user")
-	private List<Category> categories;
-
-	//bi-directional many-to-one association to Typecategory
-	@OneToMany(mappedBy="user")
-	private List<Typecategory> typecategories;
+//	//bi-directional many-to-one association to Category
+//	@OneToMany(mappedBy="user")
+//	private List<Category> categories;
+//
+//	//bi-directional many-to-one association to Typecategory
+//	@OneToMany(mappedBy="user")
+//	private List<Typecategory> typecategories;
 
 	public User() {
 	}
@@ -89,79 +93,77 @@ public class User implements Serializable {
 	public void setUpdated(Date updated) {
 		this.updated = updated;
 	}
-
-	public List<Balance> getBalances() {
-		return this.balances;
-	}
-
-	public void setBalances(List<Balance> balances) {
-		this.balances = balances;
-	}
-
-	public Balance addBalance(Balance balance) {
-		getBalances().add(balance);
-		balance.setUser(this);
-
-		return balance;
-	}
-
-	public Balance removeBalance(Balance balance) {
-		getBalances().remove(balance);
-		balance.setUser(null);
-
-		return balance;
-	}
-
-	public List<Category> getCategories() {
-		return this.categories;
-	}
-
-	public void setCategories(List<Category> categories) {
-		this.categories = categories;
-	}
-
-	public Category addCategory(Category category) {
-		getCategories().add(category);
-		category.setUser(this);
-
-		return category;
-	}
-
-	public Category removeCategory(Category category) {
-		getCategories().remove(category);
-		category.setUser(null);
-
-		return category;
-	}
-
-	public List<Typecategory> getTypecategories() {
-		return this.typecategories;
-	}
-
-	public void setTypecategories(List<Typecategory> typecategories) {
-		this.typecategories = typecategories;
-	}
-
-	public Typecategory addTypecategory(Typecategory typecategory) {
-		getTypecategories().add(typecategory);
-		typecategory.setUser(this);
-
-		return typecategory;
-	}
-
-	public Typecategory removeTypecategory(Typecategory typecategory) {
-		getTypecategories().remove(typecategory);
-		typecategory.setUser(null);
-
-		return typecategory;
-	}
+//
+//	public List<Balance> getBalances() {
+//		return this.balances;
+//	}
+//
+//	public void setBalances(List<Balance> balances) {
+//		this.balances = balances;
+//	}
+//
+//	public Balance addBalance(Balance balance) {
+//		getBalances().add(balance);
+//		balance.setUser(this);
+//
+//		return balance;
+//	}
+//
+//	public Balance removeBalance(Balance balance) {
+//		getBalances().remove(balance);
+//		balance.setUser(null);
+//
+//		return balance;
+//	}
+//
+//	public List<Category> getCategories() {
+//		return this.categories;
+//	}
+//
+//	public void setCategories(List<Category> categories) {
+//		this.categories = categories;
+//	}
+//
+//	public Category addCategory(Category category) {
+//		getCategories().add(category);
+//		category.setUser(this);
+//
+//		return category;
+//	}
+//
+//	public Category removeCategory(Category category) {
+//		getCategories().remove(category);
+//		category.setUser(null);
+//
+//		return category;
+//	}
+//
+//	public List<Typecategory> getTypecategories() {
+//		return this.typecategories;
+//	}
+//
+//	public void setTypecategories(List<Typecategory> typecategories) {
+//		this.typecategories = typecategories;
+//	}
+//
+//	public Typecategory addTypecategory(Typecategory typecategory) {
+//		getTypecategories().add(typecategory);
+//		typecategory.setUser(this);
+//
+//		return typecategory;
+//	}
+//
+//	public Typecategory removeTypecategory(Typecategory typecategory) {
+//		getTypecategories().remove(typecategory);
+//		typecategory.setUser(null);
+//
+//		return typecategory;
+//	}
 
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", created=" + created + ", email=" + email
-				+ ", pass=" + pass + ", updated=" + updated + ", balances="
-				+ balances + ", categories=" + categories + ", typecategories="
-				+ typecategories + "]";
+				+ ", pass=" + pass + ", updated=" + updated + " ]";
 	}
 
 }

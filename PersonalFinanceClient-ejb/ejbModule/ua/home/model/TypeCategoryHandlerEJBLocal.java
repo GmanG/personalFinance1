@@ -11,6 +11,7 @@ import ua.home.entity.User;
 public interface TypeCategoryHandlerEJBLocal {
 	
 	Typecategory userRelativeCategoryType(User user);
-	Typecategory getCategoryTypeByname(String name);
+	Typecategory getCategoryTypeByName(String name);
+	List<Typecategory> getAllTypeCategory(User user);
 
 }

@@ -13,8 +13,12 @@ import java.util.List;
 @NamedQueries ({
 				@NamedQuery(
 							name = "Category.getCategoryName",
-							query = "SELECT c FROM Category c WHERE c.user = :user and c.user IS NULL"
-							)
+							query = "SELECT c FROM Category c WHERE c.user = :user or c.user IS NULL"
+							),
+				@NamedQuery(
+							name = "Category.getOneCategoryByName",
+							query = "select c from Category c where c.name = :name"
+						)
 	
 })
 public class Category implements Serializable {
@@ -27,8 +31,8 @@ public class Category implements Serializable {
 	private String name;
 
 	//bi-directional many-to-one association to Balance
-	@OneToMany(mappedBy="category")
-	private List<Balance> balances;
+//	@OneToMany(mappedBy="category")
+//	private List<Balance> balances;
 
 	//bi-directional many-to-one association to User
 	@ManyToOne
@@ -54,27 +58,27 @@ public class Category implements Serializable {
 		this.name = name;
 	}
 
-	public List<Balance> getBalances() {
-		return this.balances;
-	}
-
-	public void setBalances(List<Balance> balances) {
-		this.balances = balances;
-	}
-
-	public Balance addBalance(Balance balance) {
-		getBalances().add(balance);
-		balance.setCategory(this);
-
-		return balance;
-	}
-
-	public Balance removeBalance(Balance balance) {
-		getBalances().remove(balance);
-		balance.setCategory(null);
-
-		return balance;
-	}
+//	public List<Balance> getBalances() {
+//		return this.balances;
+//	}
+//
+//	public void setBalances(List<Balance> balances) {
+//		this.balances = balances;
+//	}
+//
+//	public Balance addBalance(Balance balance) {
+//		getBalances().add(balance);
+//		balance.setCategory(this);
+//
+//		return balance;
+//	}
+//
+//	public Balance removeBalance(Balance balance) {
+//		getBalances().remove(balance);
+//		balance.setCategory(null);
+//
+//		return balance;
+//	}
 
 	public User getUser() {
 		return this.user;
@@ -86,8 +90,7 @@ public class Category implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Category [id=" + id + ", name=" + name + ", balances="
-				+ balances + ", user=" + user + "]";
+		return "Category [id=" + id + ", name=" + name + ",  user=" + user + "]";
 	}
 
 }

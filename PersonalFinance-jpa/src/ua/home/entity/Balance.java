@@ -13,7 +13,15 @@ import java.math.BigDecimal;
 @NamedQueries ({ 
 				@NamedQuery(
 							name = "Balance.findLastFiveTransaction",
-							query = "select b from Balance b, Typecategory t where b.user = :user and t.user = :user and b.typecategory = t")
+//							query = "select b.id as id, b.sum as summ, b.description as descrip, t.name as name from Balance b join b.typecategory t where b.user = :user and b.typecategory = t and b.status = :status"),
+							query = "select b from Balance b join b.typecategory t where b.user = :user and b.typecategory = t and b.status = :status"),
+				@NamedQuery(
+							name = "Balance.getTotalSum",
+							query = "select b from Balance b, Typecategory t where b.user = :user and t.user = :user and b.typecategory = t"),
+				@NamedQuery(
+							name = "Balance.getSumByUserAndStatus",
+							query = "select sum(b.sum) as total from Balance b where b.user = :user and b.status = :status"
+						)
 })
 public class Balance implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -40,12 +48,16 @@ public class Balance implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="UserID")
 	private User user;
+	
+	@ManyToOne
+	@JoinColumn(name="StatusID")
+	private Balancestatus status;
 
 	@Override
 	public String toString() {
 		return "Balance [id=" + id + ", description=" + description + ", sum="
 				+ sum + ", category=" + category + ", typecategory="
-				+ typecategory + ", user=" + user + "]";
+				+ typecategory + ", user=" + user + ", status=" + status + "]";
 	}
 
 	public Balance() {
@@ -97,6 +109,13 @@ public class Balance implements Serializable {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+	public Balancestatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(Balancestatus status) {
+		this.status = status;
 	}
 
 }

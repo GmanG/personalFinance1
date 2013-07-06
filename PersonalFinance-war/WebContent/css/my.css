@@ -1,0 +1,38 @@
+@CHARSET "UTF-8";
+#main{
+	margin-top:30px;
+}
+#left{
+	width:250px;
+	height:800px;
+	border:1px solid red;
+	float:left;
+	margin:30px 20px 0px 40px;
+}
+#totalMoney{
+	width:250px;
+	height:200px;
+	border:1px solid;
+	
+}
+#messages{
+	margin-top:30px;
+}
+#right{
+	border:1px solid green;
+	float:left;
+	width:800px;
+	height:800px;
+}
+#tabMenu{
+	margin:30px auto 0 5px; 
+	width:500px; 
+	height:220px;
+	border:1px solid blue;
+}
+#userTransaction{
+	width:350px;
+	height:200px; 
+	border:1px solid purple;
+	margin:10px;
+}

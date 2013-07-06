@@ -10,6 +10,17 @@ import java.util.List;
  * 
  */
 @Entity
+@NamedQueries({
+				@NamedQuery(
+							name = "Typecategory.getAllTypeCategoryUser",
+							query = "select t from Typecategory t where t.user = :user or t.user is null"
+							),
+				@NamedQuery(
+							name = "Typecategory.getOneTypeByName",
+							query = "select t from Typecategory t where t.name = :name"
+						)
+	
+})
 public class Typecategory implements Serializable {
 	
 
@@ -22,8 +33,8 @@ public class Typecategory implements Serializable {
 	private String name;
 
 	//bi-directional many-to-one association to Balance
-	@OneToMany(mappedBy="typecategory")
-	private List<Balance> balances;
+//	@OneToMany(mappedBy="typecategory")
+//	private List<Balance> balances;
 
 	//bi-directional many-to-one association to User
 	@ManyToOne
@@ -49,27 +60,27 @@ public class Typecategory implements Serializable {
 		this.name = name;
 	}
 
-	public List<Balance> getBalances() {
-		return this.balances;
-	}
-
-	public void setBalances(List<Balance> balances) {
-		this.balances = balances;
-	}
-
-	public Balance addBalance(Balance balance) {
-		getBalances().add(balance);
-		balance.setTypecategory(this);
-
-		return balance;
-	}
-
-	public Balance removeBalance(Balance balance) {
-		getBalances().remove(balance);
-		balance.setTypecategory(null);
-
-		return balance;
-	}
+//	public List<Balance> getBalances() {
+//		return this.balances;
+//	}
+//
+//	public void setBalances(List<Balance> balances) {
+//		this.balances = balances;
+//	}
+//
+//	public Balance addBalance(Balance balance) {
+//		getBalances().add(balance);
+//		balance.setTypecategory(this);
+//
+//		return balance;
+//	}
+//
+//	public Balance removeBalance(Balance balance) {
+//		getBalances().remove(balance);
+//		balance.setTypecategory(null);
+//
+//		return balance;
+//	}
 
 	public User getUser() {
 		return this.user;
@@ -81,7 +92,6 @@ public class Typecategory implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Typecategory [id=" + id + ", name=" + name + ", balances="
-				+ balances + ", user=" + user + "]";
+		return "Typecategory [id=" + id + ", name=" + name + ",  user=" + user + "]";
 	}
 }

@@ -28,7 +28,7 @@ public class UserHanlerEJB implements UserHanlerEJBLocal {
     	
 	private List<User> getUserByEmail(String email) {
 		// TODO Auto-generated method stub
-		return em.createNamedQuery("getUserByEmail").setParameter("email", email).getResultList();
+		return em.createNamedQuery("User.findUserByEmail").setParameter("email", email).getResultList();
 	}
 	
 	@Override

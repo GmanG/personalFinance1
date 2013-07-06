@@ -6,6 +6,7 @@
 		<class>ua.home.entity.Category</class>
 		<class>ua.home.entity.Typecategory</class>
 		<class>ua.home.entity.User</class>
+		<class>ua.home.entity.Balancestatus</class>
 		
 	</persistence-unit>
 </persistence>

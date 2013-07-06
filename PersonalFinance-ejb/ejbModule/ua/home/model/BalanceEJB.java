@@ -10,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import ua.home.entity.Balance;
+import ua.home.entity.Balancestatus;
 import ua.home.entity.User;
 
 /**
@@ -31,10 +32,10 @@ public class BalanceEJB implements BalanceEJBLocal {
     }
 
 	@Override
-	public List getUserTransaction(User user) {
+	public List getUserTransaction(User user,  Balancestatus status) {
 		// TODO Auto-generated method stub
 //		return em.createNativeQuery("select * from Balance b", "BalanceWithCategoryType").getResultList();
-		return em.createNamedQuery("findLastFiveTransaction").setParameter("user", user).getResultList();
+		return em.createNamedQuery("Balance.findLastFiveTransaction").setParameter("user", user).setParameter("status", status).getResultList();
 	}
 //	public void getUserByName(){
 //		User user  = users.getUserByEmail("mail@mail.com");

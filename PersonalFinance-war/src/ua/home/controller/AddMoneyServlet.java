@@ -17,7 +17,9 @@ import com.sun.mail.iap.Response;
 import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 import ua.home.entity.Balance;
+import ua.home.entity.Category;
 import ua.home.entity.User;
+import ua.home.model.BalanceStatusHandlerLocal;
 import ua.home.model.CategoryHandlerEJBLocal;
 import ua.home.model.MoneyManagerEJBLocal;
 import ua.home.model.TypeCategoryHandlerEJB;
@@ -41,6 +43,8 @@ public class AddMoneyServlet extends HttpServlet {
     private TypeCategoryHandlerEJBLocal type;
     @EJB
     private UserHanlerEJBLocal userHandler;
+    @EJB
+    private BalanceStatusHandlerLocal statusBalance;
     
     
     /**
@@ -65,36 +69,32 @@ public class AddMoneyServlet extends HttpServlet {
 		BigDecimal sum = new BigDecimal(sumText);
 		String catName = request.getParameter("category");
 		String typeName = request.getParameter("type");
-//		User user;
+		String statusName = "come";
 		
-//		email =email+ "";
-		
-		
-		
-//		try {
-//			User user = userHandler.getUserByEmail(email);
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//			System.out.println("==========================------------------------"+e);
-//		}
-//		user
-//		List<User> user = null;
+
 		email = ((String)request.getSession().getAttribute("email"));
 		User user = new User();
 		try {
 			user = userHandler.userCheck(email);
+			
+			moneyManager.addMoney(sum, descrip, user, cat.getCategoryByName(catName), type.getCategoryTypeByName(typeName), statusBalance.getStatusByName(statusName));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}finally{
+//		moneyManager.addMoney(sum, descrip, user, cat.getCategoryByName(catName), type.getCategoryTypeByName(typeName), statusBalance.getStatusByName(statusName));
+////		Category c = cat.getCategoryByName(catName);
 //		PrintWriter out = response.getWriter();
 //		out.print("<html>");
+//		out.print("<hr>"+email+"/"+user+"/////////"+s);
 		
-		
-//			out.print("<hr> user exist");
+			
+//			out.print("<hr>"+sum+"<hr>"+descrip+"**" +
+//					user+"<hr>"+cat.getCategoryByName(catName)+"<hr>"+type.getCategoryTypeByName(typeName)+"<hr>"+statusBalance.getStatusByName(statusName)+"<hr>");
+//			out.print("<hr>"+c);
 //		out.print("</html>");
-		moneyManager.addMoney(sum, descrip, user, cat.getCategoryByName(catName), type.getCategoryTypeByname(typeName));
+		}
+//		moneyManager.addMoney(sum, descrip, user, cat.getCategoryByName(catName), type.getCategoryTypeByName(typeName), statusBalance.getStatusByName(statusName));
 //		List<Categorie> cat;
 //		List<Categorietype> type;
 //		users = user.getUserByEmail(email);

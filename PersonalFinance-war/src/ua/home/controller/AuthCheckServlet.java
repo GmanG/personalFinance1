@@ -57,7 +57,7 @@ public class AuthCheckServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			List<Category> cate = cat.getCategoryByUser(user);
+//			List<Category> cate = cat.getCategoryByUser(user);
 //			List<Categorie> cate = cat.getCategoryByUser1();
 //			request.setAttribute("cate", cate);
 			request.getRequestDispatcher("finance.jsp").forward(request,response);
@@ -65,8 +65,7 @@ public class AuthCheckServlet extends HttpServlet {
 //			request.setAttribute("u", u);
 			
 		} else {
-			request.getRequestDispatcher("index.html").forward(request,
-					response);
+			request.getRequestDispatcher("index.html").forward(request,	response);
 		}
 
 	}
