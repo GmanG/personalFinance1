@@ -35,9 +35,7 @@
 	</div>
 	<div id="main">
 		<div id="left">
-			<div id="totalMoney">
-			Total momey ${total}
-			</div>
+			<div id="totalMoney"></div>
 			<div id="messages"></div>
 			
 		</div>
@@ -52,16 +50,16 @@
 						<div class="tab-pane active" id="tab1">
 							 <div class="tab-pane" id="tab1">
 								<form   method="POST">
-										<select class="selectpicker" id="category" >
-											<c:forEach items="${categoryList}" var="category">
+										<select class="selectpicker category"  >
+											<%-- <c:forEach items="${categoryList}" var="category">
 												<option value="${category.name}">${category.name}</option>
-											</c:forEach> 
+											</c:forEach>  --%>
 										</select>
 										<input type="text" placeholder="Amount" id="amount">
-										<select class="selectpicker" id="type">
-											<c:forEach items="${typeList}" var="type">
-												<option value="${type.name}">${type.name}</option>
-											</c:forEach>
+										<select class="selectpicker type" >
+<%-- 											<c:forEach items="${typeList}" var="type"> --%>
+<%-- 												<option value="${type.name}">${type.name}</option> --%>
+<%-- 											</c:forEach> --%>
 										</select>
 										<input type="text" placeholder="Description" id="descrip"><br>
 										<input type="button" value="Add" id="outMoney">
@@ -70,21 +68,21 @@
 						</div>
 						<div class="tab-pane" id="tab2">
 								<form action="addmoney" method="POST">
-									<select class="selectpicker" name="category">
+									<select class="selectpicker category" name="category" >
 										<optgroup label="Personal">
 										 <!-- <option name="wallet">Wallet</option>
 										<option name="save">Save</option>  -->
 										
-										<c:forEach items="${categoryList}" var="category">
+										<%-- <c:forEach items="${categoryList}" var="category">
 											<option name="${category.name}">${category.name}</option>
 										  
-										</c:forEach>   
+										</c:forEach> --%>   
 									</select>
 									<input type="text" placeholder="Amount" name="amount">
-									<select class="selectpicker" name="type">
-										<c:forEach items="${typeList}" var="type">
+									<select class="selectpicker type" name="type">
+										<%-- <c:forEach items="${typeList}" var="type">
 											<option name="${type.name}" >${type.name}</option>
-										</c:forEach>
+										</c:forEach> --%>
 									</select>
 									<input type="text" placeholder="Description" name="descrip"><br>
 									<input type="submit"  value="Add">

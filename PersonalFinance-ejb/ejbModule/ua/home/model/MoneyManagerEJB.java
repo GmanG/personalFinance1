@@ -61,27 +61,27 @@ public class MoneyManagerEJB implements MoneyManagerEJBLocal {
 	// return null;
 	// }
 
-	@Override
-	public BigDecimal getSumByUserAndStatus(User user, Balancestatus status) {
-		// TODO Auto-generated method stub
-		// return (BigDecimal)
-		// em.createNamedQuery("Balance.getSumByUserAndStatus").setParameter("user",
-		// user).setParameter("status", status).getResultList();
-		List<Balance> b = em.createNamedQuery("Balance.getSumByUserAndStatus")
-				.setParameter("user", user).setParameter("status", status)
-				.getResultList();
-		Iterator i = b.iterator();
-		BigDecimal d = new BigDecimal(0);
-//		while (i.hasNext()) {
-//			d = (BigDecimal) i;
-//			
+//	@Override
+//	public BigDecimal getSumByUserAndStatus(User user, Balancestatus status) {
+//		// TODO Auto-generated method stub
+//		// return (BigDecimal)
+//		// em.createNamedQuery("Balance.getSumByUserAndStatus").setParameter("user",
+//		// user).setParameter("status", status).getResultList();
+//		List<Balance> b = em.createNamedQuery("Balance.getSumByUserAndStatus")
+//				.setParameter("user", user).setParameter("status", status)
+//				.getResultList();
+//		Iterator i = b.iterator();
+//		BigDecimal d = new BigDecimal(0);
+////		while (i.hasNext()) {
+////			d = (BigDecimal) i;
+////			
+////		}
+//		for (Balance balance : b) {
+//		   d=	balance.getSum();
 //		}
-		for (Balance balance : b) {
-		   d=	balance.getSum();
-		}
-		
-		return d;
-	}
+//		
+//		return d;
+//	}
 
 	@Override
 	public BigDecimal getotalMoney(User user) {
@@ -89,17 +89,17 @@ public class MoneyManagerEJB implements MoneyManagerEJBLocal {
 		return null;
 	}
 
-	@Override
-	public Balance getSumByUserAndStatus1(User user, Balancestatus status) {
-		// TODO Auto-generated method stub
-		return (Balance) em.createNamedQuery("Balance.getSumByUserAndStatus")
-				.setParameter("user", user).setParameter("status", status)
-				.getSingleResult();
+//	@Override
+//	public Balance getSumByUserAndStatus1(User user, Balancestatus status) {
+//		// TODO Auto-generated method stub
+//		return (Balance) em.createNamedQuery("Balance.getSumByUserAndStatus")
+//				.setParameter("user", user).setParameter("status", status)
+//				.getSingleResult();
+//
+//	}
 
-	}
-
 	@Override
-	public List<Balance> getSumByUserAndStatus2(User user, Balancestatus status) {
+	public List<Balance> getSumByUserAndStatus(User user, Balancestatus status) {
 		// TODO Auto-generated method stub
 		return em.createNamedQuery("Balance.getSumByUserAndStatus")
 				.setParameter("user", user).setParameter("status", status)

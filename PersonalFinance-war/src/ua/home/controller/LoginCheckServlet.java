@@ -77,34 +77,35 @@ public class LoginCheckServlet extends HttpServlet {
 		String password = "";
 		email = request.getParameter("email");
 		password = request.getParameter("password");
-		Balancestatus comeStatus = status.getStatusByName("come");
-		Balancestatus outStatus = status.getStatusByName("out");
-		
+//		Balancestatus comeStatus = status.getStatusByName("come");
+//		Balancestatus outStatus = status.getStatusByName("out");
+		User user = new User();
 		try {
-			User user = login.userCheckLogin(email, password);
-			String comeText =  (moneyManger.getSumByUserAndStatus2(user, comeStatus)).toString();
+			user = login.userCheckLogin(email, password);
 			
-			String outText = (moneyManger.getSumByUserAndStatus2(user, outStatus)).toString();
-			String s = (moneyManger.getSumByUserAndStatus2(user, comeStatus)).toString();
-			BigDecimal come = new BigDecimal(comeText.replaceAll("\\[|\\]", ""));
-			BigDecimal out = new BigDecimal(outText.replaceAll("\\[|\\]", ""));
-			List<Category> categoryList = categoryHandler.getAllCategory(user);
-			List<Typecategory> typeList = typeHandler.getAllTypeCategory(user);
-			List<Balance> userTransaction = balance.getUserTransaction(user, outStatus);
-			if(!userTransaction.isEmpty()){
-				request.setAttribute("userTransaction", userTransaction);
-				
-			}
-			request.setAttribute("total", come.subtract(out));
-			request.setAttribute("typeList", typeList);
-			request.setAttribute("categoryList", categoryList);
-			
-			request.getSession().setAttribute("email", email);
-			request.getRequestDispatcher("finance.jsp").forward(request, response);
 		} catch (Exception e) {
 //			response.sendRedirect("finance.jsp");
 			System.out.println("*****************************************************************"+e);
 		}
+//		String comeText =  (moneyManger.getSumByUserAndStatus(user, comeStatus)).toString();
+//		
+//		String outText = (moneyManger.getSumByUserAndStatus(user, outStatus)).toString();
+//		String s = (moneyManger.getSumByUserAndStatus(user, comeStatus)).toString();
+//		BigDecimal come = new BigDecimal(comeText.replaceAll("\\[|\\]", ""));
+//		BigDecimal out = new BigDecimal(outText.replaceAll("\\[|\\]", ""));
+//		List<Category> categoryList = categoryHandler.getAllCategory(user);
+//		List<Typecategory> typeList = typeHandler.getAllTypeCategory(user);
+//		List<Balance> userTransaction = balance.getUserTransaction(user, outStatus);
+//		if(!userTransaction.isEmpty()){
+//			request.setAttribute("userTransaction", userTransaction);
+//			
+//		}
+//		request.setAttribute("total", come.subtract(out));
+//		request.setAttribute("typeList", typeList);
+//		request.setAttribute("categoryList", categoryList);
+		
+		request.getSession().setAttribute("email", email);
+		request.getRequestDispatcher("finance.jsp").forward(request, response);
 	}
 
 }

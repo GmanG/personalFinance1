@@ -60,9 +60,10 @@ public class OutTransactionInfoServlet extends HttpServlet {
 	    response.setHeader("Access-Control-Allow-Headers", "Content-Type");
 	    response.setHeader("Access-Control-Max-Age", "86400");
 	    PrintWriter out = response.getWriter();
+	    String email = request.getParameter("email");
 	    String json = "";
 			try {
-				user = userHandler.userCheck("mail@mail.com");
+				user = userHandler.userCheck(email);
 				List<Balance> userTransaction = balance.getUserTransaction(user, outStatus);
 				System.out.println(userTransaction.toString());
 //				System.out.println("--------------------------------OK-------------");

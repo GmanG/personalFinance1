@@ -18,9 +18,9 @@ public interface MoneyManagerEJBLocal {
 	
 	void addMoney(BigDecimal sum, String descrip, User user, Category cat, Typecategory type, Balancestatus status);
 	BigDecimal getotalMoney(User user);
-	BigDecimal getSumByUserAndStatus(User user, Balancestatus status);
+//	BigDecimal getSumByUserAndStatus(User user, Balancestatus status);
 	BigDecimal gettotalMoney(User user);
-	Balance  getSumByUserAndStatus1(User user, Balancestatus status);
-	List<Balance> getSumByUserAndStatus2(User user, Balancestatus status);
+//	Balance  getSumByUserAndStatus1(User user, Balancestatus status);
+	List<Balance> getSumByUserAndStatus(User user, Balancestatus status);
 
 }
